@@ -14,7 +14,7 @@ class ThreadController extends Controller
      */
     public function index()
     {
-        $threads = Thread::paginate(15);
+        $threads = Thread::orderBy('id','desc')->paginate(15);
         return view('thread.index',[
             'threads' => $threads
         ]);
@@ -27,7 +27,7 @@ class ThreadController extends Controller
      */
     public function create()
     {
-        //
+        return view('thread.create');
     }
 
     /**
@@ -38,7 +38,17 @@ class ThreadController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'subject'=>'required',
+            'thread'=>'required',
+            'type'=>'required',
+        ]);
+        Thread::create([
+            'subject' =>$request->subject,
+            'thread' =>$request->thread,
+            'type' =>$request->type,
+        ]);
+        return back();
     }
 
     /**
@@ -49,7 +59,7 @@ class ThreadController extends Controller
      */
     public function show(Thread $thread)
     {
-        //
+        return view('thread.single',compact('thread'));
     }
 
     /**
@@ -60,7 +70,7 @@ class ThreadController extends Controller
      */
     public function edit(Thread $thread)
     {
-        //
+        return view('thread.edit',compact('thread'));
     }
 
     /**
@@ -72,7 +82,18 @@ class ThreadController extends Controller
      */
     public function update(Request $request, Thread $thread)
     {
-        //
+        
+        $this->validate($request,[
+            'subject'=>'required',
+            'thread'=>'required',
+            'type'=>'required',
+        ]);
+        $thread->update([
+            'subject' =>$request->subject,
+            'thread' =>$request->thread,
+            'type' =>$request->type,
+        ]);
+        return back();
     }
 
     /**
@@ -83,6 +104,8 @@ class ThreadController extends Controller
      */
     public function destroy(Thread $thread)
     {
-        //
+        // $thread->destroy($thread->id);
+        $thread->delete();
+        return redirect()->route('thread.index');
     }
 }

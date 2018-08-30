@@ -24,8 +24,8 @@ $factory->define(App\User::class, function (Faker $faker) {
 
 $factory->define(App\Thread::class, function (Faker $faker) {
     return [
-        'subject' => $faker->words($array = array ('a','b','c')),
-        'thread' => $faker->text,
-        'type' => $faker->randomElement($array = array ('a','b','c'))
+        'subject' => $faker->word,
+        'thread' => $faker->sentence,
+        'type' => $faker->word
     ];
 });
