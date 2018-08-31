@@ -14,29 +14,16 @@
 
   <div class="container">
 
-    <div class="row">
-      <div class="col-md-3">Category</div>
-      <div class="col-md-9">
-        <div class="row">
-          <div class="col-md-4">
-            <h4>@yield('heading')</h4>
-          </div>
-          <div class="offset-md-6 col-md-2">
-            <a href="{{route('thread.create')}}" class="btn btn-primary">Create Thresd</a>
-          </div>
-        </div>
-      </div>
-    </div>
+
 
     <div class="row">
-      <div class="col-md-3">
-        <div class="list-group">
-          <a href="#" class="list-group-item list-group-item-action active">Active item</a>
-          <a href="#" class="list-group-item list-group-item-action">Item</a>
-          <a href="#" class="list-group-item list-group-item-action disabled">Disabled item</a>
-        </div>
-      </div>
+  @include('thread.includes.category')
+
       <div class="col-md-9">
+        <div class="row">
+          <h4 class="ml-4">@yield('heading')</h4>
+
+        </div>
         @yield('content')
       </div>
     </div>

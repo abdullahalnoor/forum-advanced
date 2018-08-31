@@ -10,47 +10,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@section('heading','Xreate Thread')
-
-
-
-
-
-
-
-
-
-
-
-
-
+@section('heading','Edit Thread')
 
 
 

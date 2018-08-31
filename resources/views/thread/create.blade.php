@@ -12,8 +12,7 @@
 
 
 
-
-@section('heading','Xreate Thread')
+@section('heading','Create Thread')
 
 
 

@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class ThreadController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth')->except(['index','show']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -47,6 +51,7 @@ class ThreadController extends Controller
             'subject' =>$request->subject,
             'thread' =>$request->thread,
             'type' =>$request->type,
+            'user_id'=> auth()->user()->id,
         ]);
         return back();
     }

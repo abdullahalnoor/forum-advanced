@@ -6,7 +6,11 @@
 </div>
 @endsection
  
-@section('heading','Thread') 
+@section('heading')
+
+<a href="{{route('thread.create')}}" class="btn btn-primary float-right ">Create Thread</a>
+@endsection
+ 
 @section('content')
   @include('thread.includes.thread')
 @endsection
